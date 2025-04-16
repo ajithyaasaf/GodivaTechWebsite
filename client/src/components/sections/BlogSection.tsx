@@ -40,21 +40,21 @@ export default function BlogSection() {
                 </div>
                 <h3 className="font-inter font-semibold text-xl text-dark mb-3 group-hover:text-primary transition-colors">{post.title}</h3>
                 <p className="text-secondary mb-4">{post.excerpt}</p>
-                <a href="#" className="text-primary font-inter font-medium hover:text-blue-700 flex items-center">
+                <button className="text-primary font-inter font-medium hover:text-blue-700 flex items-center">
                   Read More 
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" viewBox="0 0 20 20" fill="currentColor">
                     <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
-                </a>
+                </button>
               </div>
             </article>
           ))}
         </div>
         
         <div className="text-center mt-12">
-          <a href="#" className="inline-block px-8 py-3 bg-white text-primary border border-primary font-inter font-medium rounded-full hover:bg-blue-50 transition-colors">
+          <button className="inline-block px-8 py-3 bg-white text-primary border border-primary font-inter font-medium rounded-full hover:bg-blue-50 transition-colors">
             View All Posts
-          </a>
+          </button>
         </div>
       </div>
     </section>

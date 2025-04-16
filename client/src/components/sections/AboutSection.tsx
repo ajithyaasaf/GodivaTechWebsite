@@ -43,9 +43,9 @@ export default function AboutSection() {
               </div>
             </div>
             
-            <a href="#" className="inline-block px-8 py-3 bg-primary text-white font-inter font-medium rounded-full hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl">
+            <button className="inline-block px-8 py-3 bg-primary text-white font-inter font-medium rounded-full hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl">
               Meet Our Team
-            </a>
+            </button>
           </div>
         </div>
         
