@@ -1,4 +1,4 @@
-import { pgTable, text, serial, timestamp, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, serial, integer, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
@@ -16,24 +16,20 @@ export const insertUserSchema = createInsertSchema(users).pick({
 export type InsertUser = z.infer<typeof insertUserSchema>;
 export type User = typeof users.$inferSelect;
 
-// Todo schema
-export const todos = pgTable("todos", {
-  id: serial("id").primaryKey(),
-  title: text("title").notNull(),
-  completed: boolean("completed").notNull().default(false),
-  createdAt: timestamp("created_at").notNull().defaultNow(),
+// Contact form schema
+export const contactSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Please enter a valid email address"),
+  phone: z.string().optional(),
+  service: z.string().min(1, "Please select a service"),
+  message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
-export const insertTodoSchema = createInsertSchema(todos).pick({
-  title: true,
-  completed: true,
+export type ContactFormData = z.infer<typeof contactSchema>;
+
+// Newsletter schema
+export const newsletterSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
 });
 
-export const updateTodoSchema = createInsertSchema(todos).pick({
-  title: true,
-  completed: true,
-});
-
-export type InsertTodo = z.infer<typeof insertTodoSchema>;
-export type UpdateTodo = z.infer<typeof updateTodoSchema>;
-export type Todo = typeof todos.$inferSelect;
+export type NewsletterData = z.infer<typeof newsletterSchema>;
